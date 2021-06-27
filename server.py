@@ -40,4 +40,4 @@ def run_app(*args, **kwargs):
 
 if __name__ == '__main__':
     port = os.getenv("PORT", 8080)
-    run_app(debug=True, port=port)
+    run_app(port=port)
