@@ -40,4 +40,4 @@ def run_app(*args, **kwargs):
 
 
 if __name__ == '__main__':
-    run_app(debug=True, port=8000)
+    run_app(debug=True, port=8080)
