@@ -40,4 +40,5 @@ def run_app(*args, **kwargs):
 
 if __name__ == '__main__':
     port = os.getenv("PORT", 8080)
-    run_app(port=port)
+    app = CustomFlaskApp()
+    app.run(host='0.0.0.0', port=port)
