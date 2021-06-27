@@ -32,8 +32,6 @@ class FAEndpoint(Resource):
         if stock:
             company = fundamental_indicators_provider.Company(stock)
             fundamental_indicators_provider.get_fundamental_indicators_for_company({}, company)
-            time.sleep(5)
-            print(company.fundamental_indicators)
             return FundamentalAnalysisResult(company.fundamental_indicators)
         else:
             return MissingStockError()
