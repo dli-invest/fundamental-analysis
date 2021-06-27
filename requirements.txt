@@ -4,3 +4,4 @@ yahoo_fin
 flask-restful
 flask_restful_swagger
 flask-restless
+gunicorn
