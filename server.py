@@ -4,7 +4,7 @@ from flask_restful_swagger import swagger
 from flask_minimal.api import DummyEndpoint
 from flask_minimal.api import HelloEndpoint
 from flask_minimal.api import FAEndpoint
-
+import os
 API_VERSION_NUMBER = '1.0'
 API_VERSION_LABEL = 'v1'
 
@@ -39,4 +39,5 @@ def run_app(*args, **kwargs):
     app.run(*args, **kwargs)
 
 if __name__ == '__main__':
-    run_app(debug=True, port=8080)
+    port = os.getenv("PORT", 8080)
+    run_app(debug=True, port=port)
