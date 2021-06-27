@@ -5,3 +5,4 @@ flask-restful
 flask_restful_swagger
 flask-restless
 gunicorn
+html5lib
