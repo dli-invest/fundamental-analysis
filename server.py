@@ -38,8 +38,5 @@ def run_app(*args, **kwargs):
     app = CustomFlaskApp()
     app.run(*args, **kwargs)
 
-def heroku_run_app(*args, **kwargs):
-    run_app(port=8080)
-
-# if __name__ == '__main__':
-#     run_app(debug=True, port=8080)
+if __name__ == '__main__':
+    run_app(debug=True, port=8080)
