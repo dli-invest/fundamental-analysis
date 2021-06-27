@@ -18,6 +18,7 @@ def to_float(val):
             multiplier = m.get(val[-1])
             return round(float(val[:-1]) * (10 ** multiplier), 4)
     return round(float(val), 4)
+
 def get_statatistics(symbol):
     url = f"https://finance.yahoo.com/quote/{symbol}/key-statistics?p={symbol}"
     dataframes = pandas.read_html(url)
@@ -41,11 +42,10 @@ def get_last_data_item(result, dataframe, columns):
         except Exception as ex:
             result[column_to_name] = "NA"
 
-import asyncio
 import pandas
 import yahoo_fin.stock_info as si
-async def get_fundamental_indicators_for_company(config, company):
-    company.fundmantal_indicators = {}
+def get_fundamental_indicators_for_company(config, company):
+    company.fundamental_indicators = {}
 
     # Statistics Valuation
     keys = {
@@ -56,12 +56,12 @@ async def get_fundamental_indicators_for_company(config, company):
         'Price/Book (mrq)': 'PB'
     }
     data = si.get_stats_valuation(company.symbol)
-    get_data_item(company.fundmantal_indicators, data, keys)
+    get_data_item(company.fundamental_indicators, data, keys)
 
     # Income statement and Balance sheet
     data = get_statatistics(company.symbol)
 
-    get_data_item(company.fundmantal_indicators, data,
+    get_data_item(company.fundamental_indicators, data,
                 {
                     'Profit Margin': 'ProfitMargin',
                     'Operating Margin (ttm)': 'OperMargin',
@@ -69,7 +69,7 @@ async def get_fundamental_indicators_for_company(config, company):
                     'Payout Ratio 4': 'DivPayoutRatio'
                 })
 
-    get_last_data_item(company.fundmantal_indicators, data,
+    get_last_data_item(company.fundamental_indicators, data,
             {
                 'Return on assets': 'ROA',
                 'Return on equity': 'ROE',

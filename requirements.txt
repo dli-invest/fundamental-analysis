@@ -1,3 +1,6 @@
 asyncio
 pandas
 yahoo_fin
+flask-restful
+flask_restful_swagger
+flask-restless
